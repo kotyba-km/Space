@@ -1,0 +1,295 @@
+body,html
+{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(stars.png);
+    background-color: rgb(9, 7, 15);
+    overflow: hidden;
+}
+.center
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(255, 166, 0, 0.008);
+}
+.center .sun
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 200px 50px rgb(246, 183, 46);
+    background: rgb(255,248,0);
+    background: radial-gradient(circle, rgba(255,248,0,1) 0%, rgba(249,167,0,1) 47%, rgba(249,87,0,1) 100%);
+    animation: glowing 4s alternate infinite;
+    
+} 
+.center .sun .earth
+{
+    position: absolute;
+    top: 50% ;
+    left: 50%;
+    width: 200px;
+    height: 2px;
+    transform-origin: left;
+    animation: rotate 10s linear infinite;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+@keyframes glowing {
+    from{
+        box-shadow: 0px 0px 200px 50px rgb(246, 183, 46);
+    }
+    to{
+        box-shadow: 0px 0px 50px 5px rgb(246, 183, 46);
+    }
+    
+}
+.earth::before
+{
+    content:url(A.png) ;
+    position: absolute;
+    left: 150px;
+    top: -45px;
+    transition: all 0.3s;
+}
+.moon
+{
+    position: absolute;
+    top: 50% ;
+    left: calc(50% + 25px);
+    width: 75px;
+    height: 2px;
+    transform-origin: right;
+    animation: rotate 5s linear infinite;
+}
+.moon::before
+{
+    content:url(A1.png) ;
+    position: absolute;
+    left: -50px;
+    top: -33px;
+}
+.spaceMan
+{
+   position: relative;
+   bottom: 200px;
+   right: 1030px;
+   animation: blasting 12s infinite linear ;
+   transition: all 0.3s;
+}
+.spaceMan:hover
+{
+    animation-play-state: paused;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 3px rgb(87, 87, 87);
+   border-radius: 100px;
+}
+.spaceMan:active
+{
+    background-color: rgba(131, 131, 131, 0.541);
+}
+.sun:hover .earth::before
+{
+    box-shadow: 0px 0px 10px 3px rgb(87, 87, 87);
+    border-radius: 100px;
+}
+.sun:active .earth::before
+{
+    background-color: rgba(131, 131, 131, 0.541);
+}
+.sun:hover .earth
+{
+    animation-play-state: paused;
+    cursor: pointer;
+}
+.ERROR{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+    color: white;
+    text-align: center;
+}
+
+@keyframes blasting 
+{
+    0%{
+        right: 1070px;
+        bottom: 350px;
+        transform: scaleX(1);
+    }
+    45%{
+        right: -1070px;
+        bottom: 350px;
+        transform: scaleX(1);
+    }
+    50%{
+        right: -1070px;
+        bottom: -400px;
+        transform: scaleX(-1);  
+    }
+    95%{
+        right: 1070px;
+        bottom: -400px;
+        transform: scaleX(-1);      
+    }
+    100%{
+        right: 1070px;
+        bottom: 350px;
+        transform: scaleX(1);
+    }
+   
+    
+}
+.meteor
+{
+    position: absolute;
+    left: -110px;
+    animation: metro 10s infinite linear;
+    transition: all 0.3s;
+}
+.meteor:hover
+{
+    animation-play-state: paused;
+   cursor: pointer;
+   box-shadow: 0px 0px 10px 3px rgb(87, 87, 87);
+   border-radius: 100px;
+}
+.meteor:active
+{
+    background-color: rgba(131, 131, 131, 0.541);
+}
+@keyframes metro {
+    0%{ 
+        left: -200px;
+        bottom:0 ;
+        transform: rotateZ(0deg);
+      
+        }
+    12.5%{
+        left: 700px;
+        bottom: 70px;
+        transform: rotateZ(-20deg);
+        
+    }
+    25%{
+        left: 1500px;
+        bottom: 140px;
+        transform: rotateZ(-30deg);
+      
+    }
+    37.5%{
+        left: 2400px;
+        bottom: 280px;
+        transform: rotateZ(-40deg);
+  
+    }
+   50%{
+        left: 2400px;
+        bottom: 1000px;
+        transform: rotateZ(0);
+        transform: scaleX(-1);
+    }
+    62.5%
+    {
+        left: 1000px;
+        bottom: 900px;
+        transform: rotateZ(-20);
+        transform: scaleX(-1);
+    }
+    75%
+    {
+        left: 400px;
+        bottom: 800px;
+        transform: rotateZ(-30);
+        transform: scaleX(-1);
+    }
+    100%
+    {
+        left: -400px;
+        bottom: 700px;
+        transform: rotateZ(-40);
+        transform: scaleX(-1);
+    }
+
+}
+.alien
+{
+    position: absolute;
+    top: -200px;
+    animation: spacing 10s linear infinite;
+    transition: all 0.3s;
+}
+.alien:hover
+{
+    animation-play-state: paused;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 3px rgb(87, 87, 87);
+    border-radius: 90px;
+}
+.alien:active
+{
+    background-color: rgba(131, 131, 131, 0.541);
+}
+@keyframes spacing {
+    0%
+    {
+        top: -200px;
+        left: 0;
+    }
+    30%{
+        top: 1200px;
+        left: 900px;
+    }
+    50%
+    {
+        top: 1200px;
+        left: 920px;
+    }
+    80%
+    {
+        top: -200px;
+        left: 1800px;
+
+    }
+    100%
+    {
+       top: -200px;
+       left: 0;
+    }
+
+}
+@media (max-width:1350px) {
+    .center *{
+        display: none;
+    }
+    .meteor *{
+        display: none;
+    }
+    .alien *{
+        display: none;
+    }
+}
+@media (min-width:1350px) {
+    .ERROR{
+        display: none;
+    }
+}
